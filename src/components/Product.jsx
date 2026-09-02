@@ -1,7 +1,15 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addItem, removeItem } from "../redux/slice";
+import { fetchProducts } from "../redux/productSlice";
+import { useEffect } from "react";
 function Product() {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+  const products = useSelector((state) => state.products);
+  console.log(products);
+  
   return (
     <section className="product-page">
 
@@ -26,7 +34,7 @@ function Product() {
           and a sleek modern design for everyday use.
         </p>
 
-        <button onClick={() => { dispatch(addItem(1));}} className="btn">Add to Cart</button>     
+        <button onClick={() => { dispatch(addItem(1)); }} className="btn">Add to Cart</button>
         <button onClick={() => {
           dispatch(removeItem(1));
         }} className="btn remove-btn">Remove from Cart</button>
