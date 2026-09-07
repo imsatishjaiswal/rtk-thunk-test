@@ -5,7 +5,7 @@ function Header() {
     return (
         <>
             <header>
-                <div className="logo">SwiftShopper</div>
+                <div className="logo">SwiftShop</div>
 
                 <nav>
                     <a href="#">Home</a>
